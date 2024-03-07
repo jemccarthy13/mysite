@@ -13,33 +13,19 @@
     $headers .= "MIME-Version: 1.0\r\n"; 
     $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
     
-    $img = str_replace('data:image/png;base64,', '', $image);  
-    $img = str_replace(' ', '+', $img);  
-    $data = base64_decode($img);
-
     $nowtime = time();
-    if (!is_dir("images")){
-      mkdir("images");
+    if (!is_dir("contacts")){
+      mkdir("contacts");
     }
-    $success = file_put_contents("images/issue".$nowtime.".png", $data); 
-    $success = file_put_contents("images/issue".$nowtime.".txt", $comments); 
+    $success = file_put_contents("contacts/issue".$nowtime.".txt", $comments); 
     
-    $my_file = "issue".$nowtime.".png";
-    $my_path = "images/";
-
     $my_subject = "Contact Request -- slice.parrotsour.com";
 
     $my_message = "Reported by ".$email.': '.$comments;
-    mail_attachment($my_file, $my_path, "jem3973@rit.edu", $email, $email, $email, $my_subject, $my_message);        
+    mail_attachment("jem3973@rit.edu", $email, $email, $email, $my_subject, $my_message);        
 }
 
-function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $replyto, $subject, $msg) {
-  $file = $path.$filename;
-  $file_size = filesize($file);
-  $handle = fopen($file, "r");
-  $content = fread($handle, $file_size);
-  fclose($handle);
-  $content = chunk_split(base64_encode($content));
+function mail_attachment($mailto, $from_mail, $from_name, $replyto, $subject, $msg) {
   $uid = md5(uniqid(time()));
  
   $eol = PHP_EOL;
@@ -57,12 +43,11 @@ function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $rep
   $message .= "Content-Type: text/plain; charset=UTF-8\n";
   $message .= "Content-Transfer-Encoding: 7bit". "\n\n";
   $message .= $msg . "\n\n";
-  $message .="------=_NextPart_" . $uid . "\n";
 
-  $message .= "Content-Type: application/octet-stream; name=\"".$filename."\"".$eol; // use different content types here
-  $message .= "Content-Transfer-Encoding: base64".$eol;
-  $message .= "Content-Disposition: attachment; filename=\"".$filename."\"".$eol;
-  $message .= $content.$eol;
+  $message .="------=_NextPart_" . $uid . "\n";
+   $message .= "Content-Type: text/plain; charset=UTF-8\n";
+  $message .= "Content-Transfer-Encoding: 7bit". "\n\n";
+  $message .= "Test here.\n\n";
   $message .= "------=_NextPart_" . $uid . "--";
  
   if (@mail($mailto, $subject, $message, $header, " -fwebmaster@parrotsour.com")) {
