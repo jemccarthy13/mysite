@@ -1,0 +1,14 @@
+#root {
+    width:100%;
+  }
+
+body,
+html {
+  height: 100%;
+  background: white;
+  font-display: swap;
+  font-family: "Lato", sans-serif;
+  color:black;
+  width:100%;
+  display:inline-flex;
+}
