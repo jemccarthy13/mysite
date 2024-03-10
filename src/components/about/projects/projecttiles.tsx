@@ -228,8 +228,8 @@ export function ProjectTiles() {
             <CardMedia
               height="220"
               component="img"
-              image="./images/ADT-logo.jpg"
-              alt="..."
+              image="./images/adtlogo.jpg"
+              alt="ADT"
             />
             <CardContent>
               <ProjectTitleTagline>

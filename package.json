@@ -3,7 +3,7 @@
   "version": "0.1",
   "private": false,
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://john.parrotsour.com",
   "main": "dist/index.tsx",
   "files": [
     "dist",
@@ -95,15 +95,5 @@
   },
   "resolutions": {
     "**/jsdom": "16.5.3"
-  },
-  "jest": {
-    "snapshotSerializers": [
-      "./src/testutils/canvas-serializer.ts"
-    ],
-    "coveragePathIgnorePatterns": [
-      "./src/components/procedural/ai.js",
-      "./src/components/procedural/aiprocess.js",
-      "./src/ai/*"
-    ]
   }
 }

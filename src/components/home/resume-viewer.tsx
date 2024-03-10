@@ -4,7 +4,8 @@ import { Document, Page, pdfjs } from "react-pdf"
 import "react-pdf/dist/esm/Page/TextLayer.css"
 import "react-pdf/dist/esm/Page/AnnotationLayer.css"
 import { DocumentCallback } from "react-pdf/dist/cjs/shared/types"
-import { Button } from "../../utils/muiadapter"
+import { Button, IconButton } from "../../utils/muiadapter"
+import { KeyboardReturnIcon } from "../../utils/muiiconadapter"
 import { NameHeader, TitleTagline } from "../styles"
 import { Footer } from "./footer"
 
@@ -91,6 +92,15 @@ const PlaceHolder = styled.div`
   margin-top: 64px;
 `
 
+const StyledIconButton = styled(IconButton)<{ href?: string; target?: string }>`
+  margin: 8px;
+  color: grey;
+  border: 1px solid grey;
+  &:hover {
+    background-color: lightgrey;
+  }
+`
+
 export function ResumeViewer() {
   pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`
 
@@ -126,6 +136,9 @@ export function ResumeViewer() {
 
   return (
     <div>
+      <StyledIconButton href="." sx={{ width: "58px", height: "58px" }}>
+        <KeyboardReturnIcon fontSize="large" />
+      </StyledIconButton>
       {/* eslint-disable-next-line react/forbid-component-props */}
       <NameHeader style={{ marginTop: "32px" }}>Resumé</NameHeader>
       <TitleTagline>As of 10 March 2024</TitleTagline>

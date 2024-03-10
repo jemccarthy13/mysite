@@ -2,6 +2,7 @@ import AlternateEmailIcon from "@mui/icons-material/AlternateEmail"
 import ExpandLessIcon from "@mui/icons-material/ExpandLess"
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore"
 import GitHubIcon from "@mui/icons-material/GitHub"
+import KeyboardReturnIcon from "@mui/icons-material/KeyboardReturn"
 import LinkedInIcon from "@mui/icons-material/LinkedIn"
 import MailOutlineIcon from "@mui/icons-material/MailOutline"
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts"
@@ -14,6 +15,7 @@ export {
   ExpandLessIcon,
   GitHubIcon,
   LinkedInIcon,
+  KeyboardReturnIcon,
   MailOutlineIcon,
   ManageAccountsIcon,
   TerminalIcon,
