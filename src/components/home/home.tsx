@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router"
 import { HashRouter } from "react-router-dom"
 import { About } from "../about/about"
 import { Maintenance } from "./maintenance"
+import { ResumeViewer } from "./resume-viewer"
 
 /**
  * This is the main entry point into the front-facing application.
@@ -24,10 +25,7 @@ export const Home = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/about" />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/test" element={<ParrotSour type="test" />} />
-            <Route path="/api" element={<ParrotSour type="api" />} />
-            <Route path="/api/usage" element={<APIUsage />} />
-            <Route path="/api.html" element={<Navigate to="/api" />} /> */}
+          <Route path="/resume" element={<ResumeViewer />} />
         </Routes>
       </Suspense>
     </HashRouter>

@@ -20,14 +20,18 @@ export function About() {
     <div>
       <NameHeader>John McCarthy</NameHeader>
       <TitleTagline>Product Manager | Full Stack Developer</TitleTagline>
+      <div style={{ textAlign: "center" }}>
+        {/* eslint-disable-next-line react/forbid-component-props */}
+        <Link href="#/resume" style={{ color: "mediumblue" }}>
+          Resumé
+        </Link>
+      </div>
       <Tagline>
         I deliver software that changes lives, and have a lot of fun doing it.
       </Tagline>
-
       <div style={{ textAlign: "center", margin: "auto", marginTop: "10vh" }}>
         <img src="./images/top_full_stack.avif" alt="Full Stack Developer" />{" "}
       </div>
-
       <BannerSection>
         <Heading>Hi I&lsquo;m John. Thanks for coming to my page.</Heading>
 
@@ -96,15 +100,11 @@ export function About() {
           .
         </Paragraph>
       </BannerSection>
-
       <TitleTagline>Who Am I?</TitleTagline>
       <RoleTable />
-
       <TitleTagline>What Have I Done?</TitleTagline>
       <ProjectTiles />
-
-      <TitleTagline>Recognition</TitleTagline>
-
+      {/* <TitleTagline>Recognition</TitleTagline> */}
       <Footer />
     </div>
   )
