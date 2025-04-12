@@ -106,15 +106,23 @@ export function ResumeViewer() {
 
   const [numPages, setNumPages] = useState<number>(0)
   const [pageNumber, setPageNumber] = useState<number>(1)
+  const [dateModified, setDateModified] = useState<string>()
 
   const [file, setFile] = useState<File>()
 
-  const resumeFilePath = "resume/Resume202408Mar.pdf"
+  const resumeFilePath = "resume/Resume.pdf"
 
   useEffect(() => {
-    createFile(resumeFilePath, "resume.pdf", "application/pdf").then((file) =>
+    createFile(resumeFilePath, "resume.pdf", "application/pdf").then((file) => {
       setFile(file)
-    )
+      setDateModified(
+        new Date(file.lastModified).toLocaleString("default", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        })
+      )
+    })
   }, [])
 
   function onDocumentLoadSuccess(pdf: DocumentCallback) {
@@ -141,7 +149,7 @@ export function ResumeViewer() {
       </StyledIconButton>
       {/* eslint-disable-next-line react/forbid-component-props */}
       <NameHeader style={{ marginTop: "32px" }}>Resumé</NameHeader>
-      <TitleTagline>As of 10 March 2024</TitleTagline>
+      <TitleTagline>As of {dateModified}</TitleTagline>
       <DownloadButtonContainer>
         {/* @ts-expect-error download not a prop? */}
         <DownloadButton href={resumeFilePath} download="McCarthyJ-Resume.pdf">
